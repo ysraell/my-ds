@@ -2,6 +2,7 @@ Cython
 Markdown
 PrettyTable
 RISE
+black
 colorama
 cufflinks
 floweaver

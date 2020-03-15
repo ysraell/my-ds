@@ -9,15 +9,25 @@ RUN apt-get update && apt-get install -y \
   jed \
   nano \
   nodejs \
+  zsh \
+  mtr \
+  whois \
   npm && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
-RUN pip install -U pip
+# terminal colors with xterm
+ENV TERM xterm
+# set the zsh theme
+ENV ZSH_THEME agnoster
+# run the installation script  
+RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
+
+RUN pip install -U pip --no-cache-dir
 COPY /requirements.txt /requirements.txt
-RUN pip install -r requirements.txt 
+RUN pip install -r requirements.txt --no-cache-dir
 # For modules to other things
 # For run https://github.com/rasbt/deeplearning-models
 # Streamlit needs that:
-RUN pip install  python-dateutil==2.8.0 streamlit seq2seq-lstm
+RUN pip install  python-dateutil==2.8.0 streamlit seq2seq-lstm --no-cache-dir
 
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
