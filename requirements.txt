@@ -1,10 +1,7 @@
-Cython
-Markdown
-PrettyTable
-RISE
 black
 colorama
 cufflinks
+cython
 floweaver
 ipysankeywidget
 jupytemplate
@@ -12,6 +9,7 @@ jupyter
 jupyterlab
 jupyterlab_templates
 keras
+markdown
 matplotlib
 matplotlib_venn
 nltk
@@ -20,8 +18,10 @@ openpyxl
 pandas
 pandas-profiling
 pep8
+prettytable
 python-json-logger
 requests
+rise
 scikit-learn
 scipy
 seaborn
