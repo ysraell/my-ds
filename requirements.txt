@@ -17,6 +17,7 @@ numpy
 openpyxl
 pandas
 pandas-profiling
+pingouin
 pep8
 prettytable
 python-json-logger

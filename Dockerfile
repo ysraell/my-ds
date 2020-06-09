@@ -27,7 +27,7 @@ RUN pip install -r requirements.txt --no-cache-dir
 # For modules to other things
 # For run https://github.com/rasbt/deeplearning-models
 # Streamlit needs that:
-RUN pip install  python-dateutil==2.8.0 streamlit seq2seq-lstm --no-cache-dir
+RUN pip install streamlit seq2seq-lstm --no-cache-dir
 
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
