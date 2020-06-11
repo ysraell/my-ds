@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#./stop_CONTAINER.sh || echo 'No container with iamge ds-iolive1:latest running.'
+#./stop_CONTAINER.sh || echo 'No container with iamge my-ds:latest running.'
 docker run -d -p 8888:8888 -p 8501:8501 -v $HOME:/work -t my-ds:latest
 echo 'Wait 5 seconds for Jupyter Lab access...'
 sleep 5
