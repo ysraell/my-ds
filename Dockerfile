@@ -39,7 +39,7 @@ RUN cat /jupyterlab_templates_config.py >>/root/.jupyter/jupyter_notebook_config
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 RUN jupyter serverextension enable --py jupyterlab_templates
 
-RUN pip install loguru --no-cache-dir
+RUN pip install loguru passgen --no-cache-dir
 
 # Mount point of your $HOME
 RUN mkdir /work
