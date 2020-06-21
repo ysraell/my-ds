@@ -1,3 +1,6 @@
+streamlit
+loguru
+passgen
 black
 colorama
 cufflinks
@@ -8,7 +11,6 @@ jupytemplate
 jupyter
 jupyterlab
 jupyterlab_templates
-keras
 markdown
 matplotlib
 matplotlib_venn
@@ -28,9 +30,6 @@ scipy
 seaborn
 surprise
 tabulate
-tensorflow
-torch
-torchtext
 tqdm
 typing_extensions
 unidecode

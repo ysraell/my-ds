@@ -24,10 +24,6 @@ RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 RUN pip install -U pip --no-cache-dir
 COPY /requirements.txt /requirements.txt
 RUN pip install -r requirements.txt --no-cache-dir
-# For modules to other things
-# For run https://github.com/rasbt/deeplearning-models
-# Streamlit needs that:
-RUN pip install streamlit seq2seq-lstm --no-cache-dir
 
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -39,7 +35,11 @@ RUN cat /jupyterlab_templates_config.py >>/root/.jupyter/jupyter_notebook_config
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 RUN jupyter serverextension enable --py jupyterlab_templates
 
-RUN pip install loguru passgen --no-cache-dir
+# For DL, only if do you really need this!! Is >1 GB to download!
+#RUN pip install keras --no-cache-dir
+#RUN pip install torch torchtext --no-cache-dir
+#RUN pip install tensorflow --no-cache-dir
+#RUN pip install seq2seq-lstml --no-cache-dir
 
 # Mount point of your $HOME
 RUN mkdir /work
