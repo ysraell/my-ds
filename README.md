@@ -35,8 +35,14 @@ To stop the container:
 ```
 
 ## Run a shell in the running container: 
-To stop the container:
+To enter into container:
 
 ```bash
-./exec_bash.sh
+./bash.sh
+```
+
+or 
+
+```bash
+./zsh.sh
 ```
