@@ -41,6 +41,9 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 #RUN pip install tensorflow --no-cache-dir
 #RUN pip install seq2seq-lstml --no-cache-dir
 
+# Experimental:
+RUN pip install pythran
+
 # Mount point of your $HOME
 RUN mkdir /work
 
