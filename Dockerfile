@@ -42,7 +42,7 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 #RUN pip install seq2seq-lstml --no-cache-dir
 
 # Experimental:
-RUN pip install pythran
+RUN pip install pythran jax jaxlib
 
 # Mount point of your $HOME
 RUN mkdir /work
