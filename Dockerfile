@@ -32,7 +32,6 @@ RUN jupyter labextension install jupyterlab_templates
 RUN jupyter notebook --generate-config
 COPY /jupyterlab_templates_config.py /jupyterlab_templates_config.py
 RUN cat /jupyterlab_templates_config.py >>/root/.jupyter/jupyter_notebook_config.py
-COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 RUN jupyter serverextension enable --py jupyterlab_templates
 
 # For DL, only if do you really need this!! Is >1 GB to download!
@@ -42,7 +41,9 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 #RUN pip install seq2seq-lstml --no-cache-dir
 
 # Experimental:
-RUN pip install pythran jax jaxlib
+#RUN pip install pythran jax jaxlib
+
+COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 
 # Mount point of your $HOME
 RUN mkdir /work
