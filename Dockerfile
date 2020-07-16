@@ -42,6 +42,7 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 
 # Experimental:
 #RUN pip install pythran jax jaxlib
+RUN pip install yellowbrick simplejson
 
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 
