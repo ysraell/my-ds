@@ -12,13 +12,13 @@ RUN apt-get update && apt-get install -y \
   zsh \
   mtr \
   whois \
+  python-pydot \
+  python-pydot-ng \
+  graphviz \
   npm && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
-# terminal colors with xterm
 ENV TERM xterm
-# set the zsh theme
 ENV ZSH_THEME agnoster
-# run the installation script  
 RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
 RUN pip install -U pip --no-cache-dir
@@ -30,8 +30,8 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN jupyter labextension install jupyterlab_templates
 RUN jupyter notebook --generate-config
-COPY /jupyterlab_templates_config.py /jupyterlab_templates_config.py
-RUN cat /jupyterlab_templates_config.py >>/root/.jupyter/jupyter_notebook_config.py
+COPY /jupyterlab_config.py /jupyterlab_config.py
+RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
 RUN jupyter serverextension enable --py jupyterlab_templates
 
 # For DL, only if do you really need this!! Is >1 GB to download!
@@ -41,11 +41,10 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 #RUN pip install seq2seq-lstml --no-cache-dir
 
 # Experimental:
-#RUN pip install pythran jax jaxlib
-RUN pip install yellowbrick simplejson
+#RUN pip install 
 
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
-
+COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
 # Mount point of your $HOME
 RUN mkdir /work
 
