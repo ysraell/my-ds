@@ -36,7 +36,7 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN jupyter labextension install jupyterlab_templates
 RUN jupyter notebook --generate-config
-COPY /ops/jupyterlab_config.py /jupyterlab_config.py
+COPY /jupyterlab_config.py /jupyterlab_config.py
 RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
 RUN jupyter serverextension enable --py jupyterlab_templates
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
