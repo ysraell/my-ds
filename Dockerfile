@@ -25,23 +25,37 @@ RUN pip install -U pip --no-cache-dir
 COPY /requirements.txt /requirements.txt
 RUN pip install -r requirements.txt --no-cache-dir
 
+# For use NLTK
+COPY /ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
+RUN python3 /NLTK_Download_SSL.py
+RUN python -m spacy download en
+
+# Jupyter process
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN jupyter labextension install jupyterlab_templates
 RUN jupyter notebook --generate-config
-COPY /jupyterlab_config.py /jupyterlab_config.py
+COPY /ops/jupyterlab_config.py /jupyterlab_config.py
 RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
 RUN jupyter serverextension enable --py jupyterlab_templates
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+RUN jupyter labextension install ipytree
 
 # For DL, only if do you really need this!! Is >1 GB to download!
 #RUN pip install keras --no-cache-dir
 #RUN pip install torch torchtext --no-cache-dir
 #RUN pip install tensorflow --no-cache-dir
 #RUN pip install seq2seq-lstml --no-cache-dir
+#RUN pip install allennlp --no-cache-dir
+
+# For download somethings
+#COPY /GloVe_6B.py /GloVe_6B.py
+#RUN python /GloVe_6B.py
 
 # Experimental:
 #RUN pip install 
+RUN pip install nested_lookup
 
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
