@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t my-ds:latest -f Dockerfile .
+docker build -t my-ds:latest --build-arg user_home=$HOME -f Dockerfile .

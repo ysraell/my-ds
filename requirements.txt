@@ -45,3 +45,7 @@ xlrd
 xlsxwriter
 xlwt
 yellowbrick
+nested_lookup
+wordcloud
+fastparquet
+pyarrow

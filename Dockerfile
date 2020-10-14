@@ -25,11 +25,6 @@ RUN pip install -U pip --no-cache-dir
 COPY /requirements.txt /requirements.txt
 RUN pip install -r requirements.txt --no-cache-dir
 
-# For use NLTK
-COPY /ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
-RUN python3 /NLTK_Download_SSL.py
-RUN python -m spacy download en
-
 # Jupyter process
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -59,8 +54,16 @@ RUN pip install nested_lookup
 
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
+
+# For use NLTK
+RUN python -m spacy download en
+
 # Mount point of your $HOME
+ARG user_home
+RUN mkdir -p ${user_home}_empty
 RUN mkdir /work
+RUN ln -s /work ${user_home}
+ENV USER_HOME ${user_home}
 
 # All servers need be in:
 COPY /servers.sh /servers.sh
