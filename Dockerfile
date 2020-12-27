@@ -21,9 +21,9 @@ ENV TERM xterm
 ENV ZSH_THEME agnoster
 RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
-RUN pip install -U pip --no-cache-dir
+RUN pip3 install -U pip --no-cache-dir
 COPY /requirements.txt /requirements.txt
-RUN pip install -r requirements.txt --no-cache-dir
+RUN pip3 install -r requirements.txt --no-cache-dir
 
 # Jupyter process
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
@@ -38,25 +38,27 @@ RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 RUN jupyter labextension install ipytree
 
 # For DL, only if do you really need this!! Is >1 GB to download!
-#RUN pip install keras --no-cache-dir
-#RUN pip install torch torchtext --no-cache-dir
-#RUN pip install tensorflow --no-cache-dir
-#RUN pip install seq2seq-lstml --no-cache-dir
-#RUN pip install allennlp --no-cache-dir
+#RUN pip3 install keras --no-cache-dir
+#RUN pip3 install torch torchtext --no-cache-dir
+#RUN pip3 install tensorflow --no-cache-dir
+#RUN pip3 install seq2seq-lstml --no-cache-dir
+#RUN pip3 install allennlp --no-cache-dir
 
 # For download somethings
 #COPY /GloVe_6B.py /GloVe_6B.py
 #RUN python /GloVe_6B.py
 
 # Experimental:
-#RUN pip install 
-RUN pip install nested_lookup
+#RUN pip3 install 
+RUN pip3 install nested_lookup
 
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
 
 # For use NLTK
-RUN python -m spacy download en
+RUN python3 -m spacy download en
+COPY /ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
+RUN python3 /NLTK_Download_SSL.py
 
 # Mount point of your $HOME
 ARG user_home
