@@ -15,7 +15,7 @@ ipysankeywidget
 ipytree
 jellyfish
 jupyter
-jupyterlab
+jupyterlab==2.2.9
 jupyterlab_templates
 loguru
 markdown
@@ -23,6 +23,7 @@ matplotlib
 matplotlib_venn
 nested_lookup
 nltk
+nodejs
 numpy
 openpyxl
 pandas
