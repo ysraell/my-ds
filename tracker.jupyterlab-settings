@@ -14,5 +14,6 @@
         "rulers": [],
         "codeFolding": false,
         "lineWiseCopyCut": false
-    }
+    },
+    "recordTiming": true
 }

@@ -29,13 +29,17 @@ RUN pip3 install -r requirements.txt --no-cache-dir
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 RUN jupyter serverextension enable --py jupyterlab --sys-prefix
-RUN jupyter labextension install jupyterlab_templates
+RUN jupyter labextension install \
+  jupyterlab_templates \
+  ipytree \
+  @jupyter-widgets/jupyterlab-manager \
+  jupyterlab-execute-time \
+  @lckr/jupyterlab_variableinspector \
+  jupyterlab-skip-traceback
 RUN jupyter notebook --generate-config
 COPY /jupyterlab_config.py /jupyterlab_config.py
 RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
 RUN jupyter serverextension enable --py jupyterlab_templates
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
-RUN jupyter labextension install ipytree
 
 # For DL, only if do you really need this!! Is >1 GB to download!
 #RUN pip3 install keras --no-cache-dir
@@ -50,7 +54,6 @@ RUN jupyter labextension install ipytree
 
 # Experimental:
 #RUN pip3 install 
-RUN pip3 install nested_lookup
 
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
