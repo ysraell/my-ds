@@ -55,13 +55,14 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 # Experimental:
 #RUN pip3 install 
 
-COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
-COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
-
 # For use NLTK
 RUN python3 -m spacy download en
 COPY /ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
 RUN python3 /NLTK_Download_SSL.py
+
+# User configs and my templates for JupyterLab
+COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
+COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
 
 # Mount point of your $HOME
 ARG user_home
