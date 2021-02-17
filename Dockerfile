@@ -35,7 +35,9 @@ RUN jupyter labextension install \
   @jupyter-widgets/jupyterlab-manager \
   jupyterlab-execute-time \
   @lckr/jupyterlab_variableinspector \
-  jupyterlab-skip-traceback
+  jupyterlab-skip-traceback \
+  jupyter-matplotlib \
+  js
 RUN jupyter notebook --generate-config
 COPY /jupyterlab_config.py /jupyterlab_config.py
 RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
@@ -59,9 +61,7 @@ RUN python3 /NLTK_Download_SSL.py
 
 # Experimental:
 #RUN pip3 install 
-RUN pip3 install torch==1.7.1+cpu \
-  torchvision==0.8.2+cpu \
-  torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+RUN pip3 install torch==1.7.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 # User configs and my templates for JupyterLab
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/

@@ -11,9 +11,11 @@ dill
 fastparquet
 floweaver
 fuzzywuzzy
+ipympl
 ipysankeywidget
 ipytree
 jellyfish
+jmespath
 jupyter
 jupyterlab==2.2.9
 jupyterlab_templates
@@ -37,6 +39,7 @@ psutil
 ptpython
 pyarrow
 python-json-logger
+qgrid
 requests
 rise
 scikit-learn
