@@ -14,6 +14,7 @@ fuzzywuzzy
 ipympl
 ipysankeywidget
 ipytree
+itables
 jellyfish
 jmespath
 jupyter
@@ -39,7 +40,6 @@ psutil
 ptpython
 pyarrow
 python-json-logger
-qgrid
 requests
 rise
 scikit-learn
