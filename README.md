@@ -8,7 +8,7 @@ Donations in Monero (XMR):
 ```
 
 [![Python 3.7](https://img.shields.io/badge/Python-3.7-gree.svg)](https://www.python.org/downloads/release/python-370/)
-[![Docker 2.2+](https://img.shields.io/badge/Docker-2.2+-blue.svg)](https://www.python.org/downloads/release/python-370/)
+[![Docker 20.10](https://img.shields.io/badge/Docker%20Engine-20.10-blue.svg)](https://docs.docker.com/engine/release-notes/)
 
 
 Base image: `python:3.7-buster`
