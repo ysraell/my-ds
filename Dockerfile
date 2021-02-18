@@ -61,7 +61,7 @@ RUN python3 /NLTK_Download_SSL.py
 
 # Experimental:
 #RUN pip3 install 
-RUN pip3 install torch==1.7.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+#RUN pip3 install torch==1.7.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 # User configs and my templates for JupyterLab
 COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/

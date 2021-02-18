@@ -11,6 +11,7 @@ dill
 fastparquet
 floweaver
 fuzzywuzzy
+handcalcs
 ipympl
 ipysankeywidget
 ipytree
@@ -18,8 +19,10 @@ itables
 jellyfish
 jmespath
 jupyter
+jupyter-datatables
 jupyterlab==2.2.9
 jupyterlab_templates
+jupyternotify
 loguru
 markdown
 matplotlib
