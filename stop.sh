@@ -1,3 +1,5 @@
 #!/bin/bash
 
-docker stop `docker ps |grep my-ds:latest|cut -d ' ' -f 1`
+source vars.sh
+
+docker stop `docker ps |grep ${IMGNAME}:latest|cut -d ' ' -f 1`

@@ -13,8 +13,12 @@ Donations in Monero (XMR):
 
 Base image: `python:3.7-buster`
 
-#### To-do:
-1) Pull image to DockerHub.
+## Image name:
+Set image name:
+
+```bash
+./set_image_name.sh my-ds-image-name
+```
 
 ## Building:
 To build the image:
