@@ -1,2 +1,2 @@
 # `date -R`
-export IMGNAME=my-ds
+export IMGNAME=my-ds-8
