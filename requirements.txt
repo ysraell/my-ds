@@ -1,3 +1,6 @@
+#cookiecutter
+#fastapi
+#tensorly
 anytree
 arrow
 begins
@@ -36,6 +39,7 @@ pandas
 pandas-profiling
 parsedatetime
 passgen
+pdftotext
 pep8
 pingouin
 prettytable
@@ -43,6 +47,7 @@ psutil
 ptpython
 pyarrow
 python-json-logger
+python-magic
 requests
 rise
 scikit-learn
@@ -51,11 +56,12 @@ seaborn
 simplejson
 spacy
 streamlit
+streamlit-launchpad
 surprise
 tabulate
-tensorly
 tqdm
 unidecode
+uvicorn
 watermark
 wordcloud
 xlrd
