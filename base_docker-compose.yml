@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+    api_slug:
+        image: CI_REGISTRY/CI_REGISTRY_PATH/APP_NAME:CI_COMMIT_TAG
+        #restart: on-failure
+        ports:
+            - "PORT_JUPYTERLAB:8888"
+            - "PORT_STREAMLIT:8501"
+            - "PORT_FREE:8000"

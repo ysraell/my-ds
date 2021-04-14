@@ -1,24 +1,14 @@
 # my-ds
 My data science Docker image.
 
-
-Donations in Monero (XMR):
-```console
-44EUwyLJFj7XS1eiZDAzdfHWkwfm2SWHghMaDoVS7k9kDpma41ZMiJk9jf1DmAX2oa4RAu5ShRMdxMosFc7Pdvn6UM83EhM
-```
-
-[![Python 3.7](https://img.shields.io/badge/Python-3.7-gree.svg)](https://www.python.org/downloads/release/python-370/)
+[![Python 3.8](https://img.shields.io/badge/Python-3.8-gree.svg)](https://www.python.org/downloads/release/python-370/)
 [![Docker 20.10](https://img.shields.io/badge/Docker%20Engine-20.10-blue.svg)](https://docs.docker.com/engine/release-notes/)
 
 
-Base image: `python:3.7-buster`
+Base image: `python:3.8-buster`
 
-## Image name:
-Set image name:
-
-```bash
-./set_image_name.sh my-ds-image-name
-```
+## Settings:
+Check `settings.yml` first!
 
 ## Building:
 To build the image:
@@ -27,14 +17,21 @@ To build the image:
 ./build.sh
 ```
 
-## Running:
-To run the image and set up the servers:
+## Start:
+To start the image and set up the servers:
 
 ```bash
-./run.sh
+./start.sh
 ```
 
 Wait for get the JupterLab URL access.
+
+## JupterLab URL:
+To get the JupterLab URL access:
+
+```bash
+./list_jupyter.sh
+```
 
 ## Stopping:
 To stop the container:
@@ -43,15 +40,23 @@ To stop the container:
 ./stop.sh
 ```
 
-## Run a shell in the running container: 
+## Run a shell in the running container:
 To enter into container:
 
 ```bash
 ./bash.sh
 ```
 
-or 
+or
 
 ```bash
 ./zsh.sh
 ```
+
+## Run Stremalit apps:
+
+```bash
+python3 -m launchpad.main --port 8000 ./folder_with_pys
+```
+
+- Or check script `servers.sh` and uncomment the respective line.

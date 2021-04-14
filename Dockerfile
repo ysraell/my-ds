@@ -1,4 +1,6 @@
-FROM python:3.8-buster
+ARG TAG
+ARG BASE_IMAGE_NAME
+FROM ${BASE_IMAGE_NAME}:${TAG}
 
 RUN apt-get update && apt-get install -y \
   wget \
@@ -15,7 +17,11 @@ RUN apt-get update && apt-get install -y \
   python-pydot \
   python-pydot-ng \
   graphviz \
-  npm && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
+  build-essential \
+  libpoppler-cpp-dev \
+  pkg-config \
+  npm && \
+  rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
 ENV TERM xterm
 ENV ZSH_THEME agnoster
@@ -55,12 +61,12 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 #RUN python /GloVe_6B.py
 
 # For use NLTK
-RUN python3 -m spacy download en
-COPY /ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
+RUN python3 -m spacy download pt
+COPY /NLTK_Download_SSL.py /NLTK_Download_SSL.py
 RUN python3 /NLTK_Download_SSL.py
 
 # Experimental:
-#RUN pip3 install 
+#RUN pip3 install
 #RUN pip3 install torch==1.7.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 # User configs and my templates for JupyterLab
@@ -68,14 +74,15 @@ COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
 
 # Mount point of your $HOME
-ARG user_home
-RUN mkdir -p ${user_home}_empty
-RUN mkdir /work
-RUN ln -s /work ${user_home}
-ENV USER_HOME ${user_home}
+#ARG user_home
+#RUN mkdir -p ${user_home}_empty
+#RUN mkdir /work
+#RUN ln -s /work ${user_home}
+#ENV USER_HOME ${user_home}
+RUN echo export PATH=${PATH} >>/root/.zshrc
 
 # All servers need be in:
 COPY /servers.sh /servers.sh
 WORKDIR /
-EXPOSE 8888 8501
+EXPOSE 8888 8501 8000
 CMD ["/servers.sh"]

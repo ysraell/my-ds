@@ -1,5 +1,7 @@
-import nltk
 import ssl
+
+import nltk
+
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -8,6 +10,7 @@ else:
     ssl._create_default_https_context = _create_unverified_https_context
 
 
-nltk.download('stopwords')
-nltk.download('wordnet')
-
+nltk.download("stopwords")
+nltk.download("rslp")
+# nltk.download('wordnet')
+# stopwords = nltk.corpus.stopwords.words('portuguese')
