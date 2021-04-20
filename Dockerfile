@@ -28,7 +28,7 @@ ENV ZSH_THEME agnoster
 RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
 RUN pip3 install -U pip --no-cache-dir
-COPY /requirements.txt /requirements.txt
+COPY ./ops/requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
 # Jupyter process
@@ -43,9 +43,9 @@ RUN jupyter labextension install \
   @lckr/jupyterlab_variableinspector \
   jupyterlab-skip-traceback \
   jupyter-matplotlib \
-  js
+  js || cat /tmp/jupyterlab-debug-*.log
 RUN jupyter notebook --generate-config
-COPY /jupyterlab_config.py /jupyterlab_config.py
+COPY ./ops/jupyterlab_config.py /jupyterlab_config.py
 RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
 RUN jupyter serverextension enable --py jupyterlab_templates
 
@@ -62,16 +62,23 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 
 # For use NLTK
 RUN python3 -m spacy download pt
-COPY /NLTK_Download_SSL.py /NLTK_Download_SSL.py
+COPY ./ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
 RUN python3 /NLTK_Download_SSL.py
 
 # Experimental:
 #RUN pip3 install
 #RUN pip3 install torch==1.7.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+# Poetry
+#RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+#ENV PATH /root/.poetry/bin:${PATH}
+
+# Serverless Framework
+#RUN curl -o- -L https://slss.io/install | bash
+#ENV PATH /root/.serverless/bin:${PATH}
 
 # User configs and my templates for JupyterLab
-COPY /JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
-COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
+COPY ./ops/JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
+COPY ./ops/tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
 
 # Mount point of your $HOME
 #ARG user_home
@@ -82,7 +89,7 @@ COPY /tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/n
 RUN echo export PATH=${PATH} >>/root/.zshrc
 
 # All servers need be in:
-COPY /servers.sh /servers.sh
+COPY ./ops/servers.sh /servers.sh
 WORKDIR /
 EXPOSE 8888 8501 8000
 CMD ["/servers.sh"]

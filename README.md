@@ -14,14 +14,14 @@ Check `settings.yml` first!
 To build the image:
 
 ```bash
-./build.sh
+$ ./scripts/build.sh
 ```
 
 ## Start:
 To start the image and set up the servers:
 
 ```bash
-./start.sh
+$ ./scripts/start.sh
 ```
 
 Wait for get the JupterLab URL access.
@@ -30,33 +30,34 @@ Wait for get the JupterLab URL access.
 To get the JupterLab URL access:
 
 ```bash
-./list_jupyter.sh
+$ ./scripts/list_jupyter.sh
 ```
 
 ## Stopping:
 To stop the container:
 
 ```bash
-./stop.sh
+$ ./scripts/stop.sh
 ```
 
 ## Run a shell in the running container:
 To enter into container:
 
 ```bash
-./bash.sh
+$ ./scripts/bash.sh
 ```
 
 or
 
 ```bash
-./zsh.sh
+$ ./scripts/zsh.sh
 ```
 
 ## Run Stremalit apps:
 
 ```bash
-python3 -m launchpad.main --port 8000 ./folder_with_pys
+$ ./scripts/bash.sh
+$ python3 -m launchpad.main --port 8000 ./folder_with_pys
 ```
 
 - Or check script `servers.sh` and uncomment the respective line.
