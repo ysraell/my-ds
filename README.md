@@ -1,4 +1,4 @@
-# my-ds
+# My-DS
 My data science Docker image.
 
 [![Python 3.8](https://img.shields.io/badge/Python-3.8-gree.svg)](https://www.python.org/downloads/release/python-370/)
@@ -61,3 +61,12 @@ $ python3 -m launchpad.main --port 8000 ./folder_with_pys
 ```
 
 - Or check script `servers.sh` and uncomment the respective line.
+
+### To crate symbolic links to scripts:
+
+```bash
+$ for a in `ls  scripts/*.sh`;
+    do
+        ln -s $a `echo $a |cut -d '/' -f 2 |cut -d '.' -f 1`
+    done
+```

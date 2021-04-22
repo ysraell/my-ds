@@ -1,0 +1,1 @@
+scripts/zsh.sh

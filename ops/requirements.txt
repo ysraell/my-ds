@@ -68,3 +68,6 @@ xlrd
 xlsxwriter
 xlwt
 yellowbrick
+howdoi
+sh
+wikipedia
