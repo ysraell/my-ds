@@ -9,12 +9,15 @@ boltons
 colorama
 colorlog
 cufflinks
+cx_oracle
 cython
 dill
+dynaconf
 fastparquet
 floweaver
 fuzzywuzzy
 handcalcs
+howdoi
 ipympl
 ipysankeywidget
 ipytree
@@ -23,7 +26,8 @@ jellyfish
 jmespath
 jupyter
 jupyter-datatables
-jupyterlab==2.2.9
+jupyterlab
+jupyterlab_execute_time
 jupyterlab_templates
 jupyternotify
 loguru
@@ -46,6 +50,7 @@ prettytable
 psutil
 ptpython
 pyarrow
+pymupdf
 python-json-logger
 python-magic
 requests
@@ -53,6 +58,7 @@ rise
 scikit-learn
 scipy
 seaborn
+sh
 simplejson
 spacy
 streamlit
@@ -63,11 +69,9 @@ tqdm
 unidecode
 uvicorn
 watermark
+wikipedia
 wordcloud
 xlrd
 xlsxwriter
 xlwt
 yellowbrick
-howdoi
-sh
-wikipedia

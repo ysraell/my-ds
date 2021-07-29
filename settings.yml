@@ -2,11 +2,12 @@ variables:
   title: My Data Science Workstation
   description: Docker image with all you need for data science.
   author: Israel Oliveira <prof.israel@gmail.com>
-  version: 2.1.0
+  version: 2.1.1
   PORT_JUPYTERLAB: 8888
   PORT_STREAMLIT: 8501
   PORT_FREE: 8000
   APP_NAME: my-ds
   BASE_IMAGE_NAME: python
-  BASE_IMAGE_TAG: 3.8-buster
+  BASE_IMAGE_TAG: 3.9
+  SHM_SIZE: 16g
   DOCKER_HOST: tcp://docker:2375

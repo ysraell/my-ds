@@ -20,18 +20,28 @@ RUN apt-get update && apt-get install -y \
   build-essential \
   libpoppler-cpp-dev \
   pkg-config \
+  tree \
+  jq \
   npm && \
   rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
+# Jupyter process and Node.js 14.
+RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
+  apt-get install -y nodejs && \
+  rm -rf /var/cache/apt && \
+  rm -rf /var/lib/apt/lists/*
+
+# Oh-My-Z Shell
 ENV TERM xterm
 ENV ZSH_THEME agnoster
 RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
+# Install python pkgs
 RUN pip3 install -U pip --no-cache-dir
 COPY ./ops/requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
-# Jupyter process
+# Jupyter process 
 RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 RUN jupyter serverextension enable --py jupyterlab --sys-prefix
@@ -39,9 +49,6 @@ RUN jupyter labextension install \
   jupyterlab_templates \
   ipytree \
   @jupyter-widgets/jupyterlab-manager \
-  jupyterlab-execute-time \
-  @lckr/jupyterlab_variableinspector \
-  jupyterlab-skip-traceback \
   jupyter-matplotlib \
   js || cat /tmp/jupyterlab-debug-*.log
 RUN jupyter notebook --generate-config
@@ -61,17 +68,20 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 #RUN python /GloVe_6B.py
 
 # For use NLTK
-RUN python3 -m spacy download pt
+RUN python3 -m spacy download pt_core_news_sm
 COPY ./ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
 RUN python3 /NLTK_Download_SSL.py
 
 # Experimental:
 #RUN pip3 install
-#RUN pip3 install torch==1.7.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+#RUN pip3 install torch==1.9.0+cpu torchvision==0.10.0+cpu torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+
 # Poetry
 #RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
 #ENV PATH /root/.poetry/bin:${PATH}
 
+#RUN pip3 install cx_Oracle ibm-db
+#RUN pip3 install pymupdf
 # Serverless Framework
 #RUN curl -o- -L https://slss.io/install | bash
 #ENV PATH /root/.serverless/bin:${PATH}
