@@ -64,7 +64,7 @@ $ python3 -m launchpad.main --port 8000 ./folder_with_pys
 
 - Or check script `servers.sh` and uncomment the respective line.
 
-### To crate symbolic links to scripts:
+### To create symbolic links to scripts:
 
 ```bash
 $ for a in `ls  scripts/*.sh`;
