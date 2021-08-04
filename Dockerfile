@@ -82,6 +82,7 @@ RUN python3 /NLTK_Download_SSL.py
 
 #RUN pip3 install cx_Oracle ibm-db
 #RUN pip3 install pymupdf
+RUN pip3 install antropy
 # Serverless Framework
 #RUN curl -o- -L https://slss.io/install | bash
 #ENV PATH /root/.serverless/bin:${PATH}
