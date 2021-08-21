@@ -74,3 +74,8 @@ $ for a in `ls  scripts/*.sh`;
         ln -s $a `echo $a |cut -d '/' -f 2 |cut -d '.' -f 1`
     done
 ```
+
+### TODO:
+
+- Use Poetry insted self management based on `settings.yml`.
+    - Dev. script for add a package python in running container directly from host's shell.

@@ -10,20 +10,15 @@ RUN apt-get update && apt-get install -y \
   vim \
   jed \
   nano \
-  nodejs \
   zsh \
   mtr \
   whois \
-  python-pydot \
-  python-pydot-ng \
-  graphviz \
   build-essential \
   libpoppler-cpp-dev \
   pkg-config \
   tree \
   jq \
-  npm && \
-  rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
 # Jupyter process and Node.js 14.
 RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
