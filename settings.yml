@@ -5,7 +5,7 @@ variables:
   version: 2.1.1
   PORT_JUPYTERLAB: 8888
   PORT_STREAMLIT: 8501
-  PORT_FREE: 8000
+  PORT_FREE: 8090
   APP_NAME: my-ds
   BASE_IMAGE_NAME: python
   BASE_IMAGE_TAG: 3.9
