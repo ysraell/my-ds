@@ -18,7 +18,20 @@ in Linux:
 ```bash
 $ docker-compose -f docker-compose.yml up
 ```
-in Windows (**not tested yet**) with `docker-compose.yml` and check mount point in `settings.yml` beafore use.
+in Windows (**not tested yet**) with `docker-compose.windows.yml` and check mount point in `settings.yml` beafore use.
+
+```bash
+C:\Users\UserLogin> mkdir work
+C:\Users\UserLogin> cd work
+ - Download docker-compose.windows.yml to C:\Users\UserLogin\work -
+C:\Users\UserLogin\work> docker-compose -f docker-compose.windows.yml up
+```
+
+Alter pulled the image, it will return the link for JupyterLab with a token, like this:
+
+```bash
+workstation_1 | or http://127.0.0.1:8888/lab?token=2ee0f77e160ce90db827324b66a516c3b26e04e5c7a5e511
+```
 
 ## Settings:
 Check `settings.yml` first!
@@ -88,3 +101,5 @@ $ for a in `ls  scripts/*.sh`;
 
 - Use Poetry insted self management based on `settings.yml`.
     - Dev. script for add a package python in running container directly from host's shell.
+
+`ψυχήδηλειν`
