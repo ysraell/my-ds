@@ -9,7 +9,16 @@ My data science Docker image.
 ![](https://img.shields.io/badge/Work%20on-Linux%20%26%20macOS-blue)
 
 
-Base image: `python:3.x-buster`
+Base Docker image: `python`
+
+## Run with *Docker Compose*:
+
+in Linux:
+
+```bash
+$ docker-compose -f docker-compose.yml up
+```
+in Windows (**not tested yet**) with `docker-compose.yml` and check mount point in `settings.yml` beafore use.
 
 ## Settings:
 Check `settings.yml` first!

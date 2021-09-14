@@ -2,12 +2,12 @@ version: '3.3'
 
 services:
     workstation:
-        image: CI_REGISTRY/APP_NAME:CI_COMMIT_TAG
+        image: ysraell/my-ds:2.1.1
         #restart: on-failure
         volumes:
             - /home/israel:/work
             #- "C:/Users/Israel/work:/work"
         ports:
-            - "PORT_JUPYTERLAB:8888"
-            - "PORT_STREAMLIT:8501"
-            - "PORT_FREE:8000"
+            - "8888:8888"
+            - "8501:8501"
+            - "8090:8000"

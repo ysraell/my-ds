@@ -1,0 +1,15 @@
+services:
+  workstation:
+    image: ysraell/my-ds:2.1.1
+    ports:
+    - published: 8888
+      target: 8888
+    - published: 8501
+      target: 8501
+    - published: 8090
+      target: 8000
+    volumes:
+    - /home/israel:/work:rw
+    #- "C:/Users/Israel/work:/work"
+version: '3.3'
+
