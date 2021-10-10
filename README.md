@@ -18,7 +18,7 @@ in Linux:
 ```bash
 $ docker-compose -f docker-compose.yml up
 ```
-in Windows (**not tested yet**) with `docker-compose.windows.yml` and check mount point in `settings.yml` beafore use.
+in Windows with `docker-compose.windows.yml` and check mount point in `settings.yml` beafore use.
 
 ```bash
 C:\Users\UserLogin> mkdir work
