@@ -2,7 +2,7 @@ variables:
   title: My Data Science Workstation
   description: Docker image with all you need for data science.
   author: Israel Oliveira <prof.israel@gmail.com>
-  version: 2.1.1
+  version: 2.1.2
   PORT_JUPYTERLAB: 8888
   PORT_STREAMLIT: 8501
   PORT_FREE: 8090

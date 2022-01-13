@@ -2,12 +2,12 @@ version: '3.3'
 
 services:
     workstation:
-        image: ysraell/my-ds:2.1.1
+        image: ysraell/my-ds:2.1.2
         #restart: on-failure
         volumes:
             #- /home/israel:/work
             - "C:/Users/UserLogin/work:/work"
         ports:
             - "8888:8888"
-            - "8501:8501"
-            - "8090:8000"
+            #- "8501:8501"
+            #- "8090:8000"
