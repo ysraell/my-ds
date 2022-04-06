@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 variables:
   title: My Data Science Workstation
   description: Docker image with all you need for data science.
@@ -11,3 +12,18 @@ variables:
   BASE_IMAGE_TAG: 3.10-bullseye
   SHM_SIZE: 16g
   DOCKER_HOST: tcp://docker:2375
+=======
+variables:
+  title: My Data Science Workstation
+  description: Docker image with all you need for data science.
+  author: Israel Oliveira <prof.israel@gmail.com>
+  version: 2.1.2
+  PORT_JUPYTERLAB: 8888
+  PORT_STREAMLIT: 8501
+  PORT_FREE: 8090
+  APP_NAME: my-ds
+  BASE_IMAGE_NAME: python
+  BASE_IMAGE_TAG: 3.9
+  SHM_SIZE: 16g
+  DOCKER_HOST: tcp://docker:2375
+>>>>>>> 6e3bc82d8b423dc669e0f56f27fbbfba38513ae1

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: '3.3'
 
 services:
@@ -11,3 +12,18 @@ services:
             - "8888:8888"
             - "8501:8501"
             - "8090:8000"
+=======
+version: '3.3'
+
+services:
+    workstation:
+        image: ysraell/my-ds:2.1.2
+        #restart: on-failure
+        volumes:
+            - /home/israel:/work
+            #- "C:/Users/Israel/work:/work"
+        ports:
+            - "8888:8888"
+            #- "8501:8501"
+            #- "8090:8000"
+>>>>>>> 6e3bc82d8b423dc669e0f56f27fbbfba38513ae1
