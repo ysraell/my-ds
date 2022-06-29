@@ -102,5 +102,6 @@ $ for a in `ls  scripts/*.sh`;
 
 - Use Poetry insted self management based on `settings.yml`.
     - Dev. script for add a package python in running container directly from host's shell.
+- Reuse container created, store the name or give a name, changing the `start.sh`/`stop.sh` and add a new command `reset.sh` to recreate the container.
 
 `ψυχήδηλειν`
