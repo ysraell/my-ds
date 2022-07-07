@@ -63,9 +63,9 @@ RUN jupyter serverextension enable --py jupyterlab_templates
 #RUN python /GloVe_6B.py
 
 # For use NLTK
-RUN python3 -m spacy download pt_core_news_sm
-COPY ./ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
-RUN python3 /NLTK_Download_SSL.py
+# RUN python3 -m spacy download pt_core_news_sm
+# COPY ./ops/NLTK_Download_SSL.py /NLTK_Download_SSL.py
+# RUN python3 /NLTK_Download_SSL.py
 
 # Experimental:
 #RUN pip3 install
@@ -77,7 +77,7 @@ RUN python3 /NLTK_Download_SSL.py
 
 #RUN pip3 install cx_Oracle ibm-db
 #RUN pip3 install pymupdf
-RUN pip3 install antropy
+#RUN pip3 install antropy
 # Serverless Framework
 #RUN curl -o- -L https://slss.io/install | bash
 #ENV PATH /root/.serverless/bin:${PATH}
