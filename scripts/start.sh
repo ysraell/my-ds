@@ -12,6 +12,7 @@ else
     TAG=$1
 fi
 
+CONTAINER_NAME=`settings2env CONTAINER_NAME`
 APP_NAME=`settings2env APP_NAME`
 PORT_JUPYTERLAB=`settings2env PORT_JUPYTERLAB`
 PORT_STREAMLIT=`settings2env PORT_STREAMLIT`
@@ -24,6 +25,7 @@ docker run \
     -p ${PORT_FREE}:8000 \
     -v $HOME:/work \
     --shm-size=${SHM_SIZE} \
+    --name ${CONTAINER_NAME} \
     -d -t ${APP_NAME}:${TAG}
 
 echo 'Wait 5 seconds for Jupyter Lab access...'

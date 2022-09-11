@@ -12,9 +12,68 @@ My data science Docker image.
 
 Base Docker image: `python`
 
+## Settings:
+Check `settings.yml` first!
+
+## Building:
+To build the image:
+
+```bash
+$ ./build
+```
+
+## Start:
+To start the image and set up the servers:
+
+```bash
+$ ./start
+```
+- Every time tha you run this command, will create a new container!! Run it once (always as possible).
+
+Wait for get the JupterLab URL access.
+
+## JupterLab URL:
+To get the JupterLab URL access:
+
+```bash
+$ ./list_jupyter
+```
+
+## Stopping:
+To stop the container:
+
+```bash
+$ ./stop
+```
+
+## Load previous container:
+To load a container already stared before:
+
+```bash
+$ ./load
+```
+
+## Run a shell in the running container:
+To enter into container:
+
+```bash
+$ ./bash
+```
+
+or
+
+```bash
+$ ./zsh
+```
+
+
 ## Run with *Docker Compose*:
 
-in Linux:
+in Linux...
+
+```bash
+$ docker-compose -f docker-compose.yml up
+```
 
 ```bash
 $ docker-compose -f docker-compose.yml up
@@ -32,52 +91,6 @@ Alter pulled the image, it will return the link for JupyterLab with a token, lik
 
 ```bash
 workstation_1 | or http://127.0.0.1:8888/lab?token=2ee0f77e160ce90db827324b66a516c3b26e04e5c7a5e511
-```
-
-## Settings:
-Check `settings.yml` first!
-
-## Building:
-To build the image:
-
-```bash
-$ ./scripts/build.sh
-```
-
-## Start:
-To start the image and set up the servers:
-
-```bash
-$ ./scripts/start.sh
-```
-
-Wait for get the JupterLab URL access.
-
-## JupterLab URL:
-To get the JupterLab URL access:
-
-```bash
-$ ./scripts/list_jupyter.sh
-```
-
-## Stopping:
-To stop the container:
-
-```bash
-$ ./scripts/stop.sh
-```
-
-## Run a shell in the running container:
-To enter into container:
-
-```bash
-$ ./scripts/bash.sh
-```
-
-or
-
-```bash
-$ ./scripts/zsh.sh
 ```
 
 ## Run Stremalit apps:

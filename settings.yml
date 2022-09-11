@@ -7,6 +7,7 @@ variables:
   PORT_STREAMLIT: 8501
   PORT_FREE: 8090
   APP_NAME: my-ds
+  CONTAINER_NAME: workstation
   BASE_IMAGE_NAME: python
   BASE_IMAGE_TAG: 3.10-bullseye
   SHM_SIZE: 16g

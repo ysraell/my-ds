@@ -12,8 +12,8 @@ else
     TAG=$1
 fi
 
-APP_NAME=`settings2env APP_NAME`
+CONTAINER_NAME=`settings2env CONTAINER_NAME`
 
-docker exec -it `docker ps |grep ${APP_NAME}:${TAG}|cut -d ' ' -f 1`  bash
+docker exec -it ${CONTAINER_NAME} bash
 
 #EOF

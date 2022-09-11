@@ -21,10 +21,10 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
 # Jupyter process and Node.js 14.
-RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
-  apt-get install -y nodejs && \
-  rm -rf /var/cache/apt && \
-  rm -rf /var/lib/apt/lists/*
+# RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
+#   apt-get install -y nodejs && \
+#   rm -rf /var/cache/apt && \
+#   rm -rf /var/lib/apt/lists/*
 
 # Oh-My-Z Shell
 ENV TERM xterm
@@ -37,19 +37,18 @@ COPY ./ops/requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
 # Jupyter process 
-RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
-RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN jupyter labextension install \
   jupyterlab_templates \
   ipytree \
   @jupyter-widgets/jupyterlab-manager \
-  jupyter-matplotlib \
-  js || cat /tmp/jupyterlab-debug-*.log
+  jupyter-matplotlib || cat /tmp/jupyterlab-debug-*.log
+RUN jupyter serverextension enable --py jupyterlab_templates
+RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN jupyter notebook --generate-config
 COPY ./ops/jupyterlab_config.py /jupyterlab_config.py
 RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
-RUN jupyter serverextension enable --py jupyterlab_templates
 
 # For DL, only if do you really need this!! Is >1 GB to download!
 #RUN pip3 install keras --no-cache-dir
@@ -97,5 +96,4 @@ RUN echo export PATH=${PATH} >>/root/.zshrc
 # All servers need be in:
 COPY ./ops/servers.sh /servers.sh
 WORKDIR /
-EXPOSE 8888 8501 8000
 CMD ["/servers.sh"]

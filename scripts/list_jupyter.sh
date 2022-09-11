@@ -14,8 +14,8 @@ fi
 
 APP_NAME=`settings2env APP_NAME`
 PORT_JUPYTERLAB=`settings2env PORT_JUPYTERLAB`
-CONTAINER=`docker ps |grep ${APP_NAME}:${TAG}|cut -d ' ' -f 1`
-TOKEN=`docker exec -it ${CONTAINER} /bin/bash -c " jupyter server list --json |/usr/bin/jq -r '.token' "` 
+CONTAINER_NAME=`settings2env CONTAINER_NAME`
+TOKEN=`docker exec -it ${CONTAINER_NAME} /bin/bash -c " jupyter server list --json |/usr/bin/jq -r '.token' "` 
 echo "http://localhost:${PORT_JUPYTERLAB}/?token=${TOKEN}"
 
 #EOF

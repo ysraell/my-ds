@@ -14,4 +14,6 @@ function settings2env() {
 
 CONTAINER_NAME=`settings2env CONTAINER_NAME`
 
-docker stop ${CONTAINER_NAME}
+docker start ${CONTAINER_NAME}
+
+#EOF
