@@ -53,6 +53,13 @@ To load a container already stared before:
 $ ./load
 ```
 
+## REmove previous container:
+To remove a container already stared before:
+
+```bash
+$ ./rm_container
+```
+
 ## Run a shell in the running container:
 To enter into container:
 
