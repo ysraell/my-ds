@@ -4,31 +4,29 @@ set -e
 CI_COMMIT_TAG=$2
 EXT_SETTINGS=$1
 
-function settings2env() {
-    echo `grep $1: $2 |cut -d ':' -f 2 |xargs`
-}
+source ./scripts/yaml2env version settings.yml
 
 if [ -z $2 ] ;
 then
-    CI_COMMIT_TAG=`settings2env version settings.yml`
+    CI_COMMIT_TAG=${version}
 else
     CI_COMMIT_TAG=$2
 fi
 
 if [ -z $3 ] ;
 then
-    TAG=`settings2env version settings.yml`
+    TAG=${version}
 else
     TAG=$3
 fi
 
-APP_NAME=`settings2env APP_NAME settings.yml`
-CI_REGISTRY=`settings2env CI_REGISTRY ${EXT_SETTINGS}`
+source ./scripts/yaml2env APP_NAME settings.yml
+source ./scripts/yaml2env CI_REGISTRY ${EXT_SETTINGS}
 
 docker tag $APP_NAME:$TAG  $CI_REGISTRY/$APP_NAME:$CI_COMMIT_TAG
 
-CI_REGISTRY_USER=`settings2env CI_REGISTRY_USER ${EXT_SETTINGS}`
-CI_REGISTRY_PASSWORD=`settings2env CI_REGISTRY_PASSWORD ${EXT_SETTINGS}`
+source ./scripts/yaml2env CI_REGISTRY_USER ${EXT_SETTINGS}
+source ./scripts/yaml2env CI_REGISTRY_PASSWORD ${EXT_SETTINGS}
 
 #docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
 
