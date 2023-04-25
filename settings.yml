@@ -6,11 +6,7 @@ PORT_JUPYTERLAB: 8888
 PORT_STREAMLIT: 8501
 PORT_FREE: 8090
 APP_NAME: my-ds
-<<<<<<< HEAD
-CONTAINER_NAME: wsds1
-=======
 CONTAINER_NAME: workstation
->>>>>>> e982dda (wip)
 BASE_IMAGE_NAME: python
 BASE_IMAGE_TAG: 3.10-bullseye
 SHM_SIZE: 16g
