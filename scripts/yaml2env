@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+var_name=$1
+var=`grep -e "^$1: " $2 |cut -d ':' -f 2 |xargs`
+export $var_name=$var
+echo $var
+
+#EOF

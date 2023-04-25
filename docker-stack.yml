@@ -1,15 +1,28 @@
+name: my-ds-push
 services:
   workstation:
-    image: ysraell/my-ds:2.1.1
+    image: ysraell/my-ds:2.3.0
+    networks:
+      default: null
     ports:
-    - published: 8888
+    - mode: ingress
       target: 8888
-    - published: 8501
+      published: "8888"
+      protocol: tcp
+    - mode: ingress
       target: 8501
-    - published: 8090
+      published: "8501"
+      protocol: tcp
+    - mode: ingress
       target: 8000
+      published: "8090"
+      protocol: tcp
     volumes:
-    - /home/israel:/work:rw
-    #- "C:/Users/Israel/work:/work"
-version: '3.3'
-
+    - type: bind
+      source: /home/israel
+      target: /work
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: my-ds-push_default
