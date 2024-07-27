@@ -4,7 +4,6 @@ FROM ${BASE_IMAGE_NAME}:${TAG}
 
 RUN apt-get update && apt-get install -y \
   wget \
-  nginx \
   ca-certificates \
   htop \
   vim \
@@ -20,8 +19,8 @@ RUN apt-get update && apt-get install -y \
   jq \
   && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
-# Jupyter process and Node.js 14.
-# RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
+# Jupyter process and Node.js.
+# RUN curl -sL https://deb.nodesource.com/setup_20.x  | bash - && \
 #   apt-get install -y nodejs && \
 #   rm -rf /var/cache/apt && \
 #   rm -rf /var/lib/apt/lists/*
