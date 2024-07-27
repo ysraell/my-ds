@@ -20,10 +20,10 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
 # Jupyter process and Node.js.
-# RUN curl -sL https://deb.nodesource.com/setup_20.x  | bash - && \
-#   apt-get install -y nodejs && \
-#   rm -rf /var/cache/apt && \
-#   rm -rf /var/lib/apt/lists/*
+RUN curl -sL https://deb.nodesource.com/setup_20.x  | bash - && \
+  apt-get install -y nodejs && \
+  rm -rf /var/cache/apt && \
+  rm -rf /var/lib/apt/lists/*
 
 # Oh-My-Z Shell
 ENV TERM xterm
@@ -41,10 +41,11 @@ RUN jupyter labextension install \
   ipytree \
   @jupyter-widgets/jupyterlab-manager \
   jupyter-matplotlib || cat /tmp/jupyterlab-debug-*.log
-RUN jupyter serverextension enable --py jupyterlab_templates
-RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
-RUN jupyter serverextension enable --py jupyterlab --sys-prefix
+RUN jupyter labextension install jupyterlab_templates
+RUN jupyter server extension enable --py jupyterlab_templates  
+#RUN jupyter nbextension enable --py --sys-prefix ipysankeywidget
+#RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+#RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 RUN jupyter notebook --generate-config
 COPY ./ops/jupyterlab_config.py /jupyterlab_config.py
 RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
