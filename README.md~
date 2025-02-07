@@ -14,7 +14,7 @@ My data science Docker image.
 [Installing the NVIDIA Container Toolkit
 (*first*)!!](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
-Base Docker image: `24.12-cuda11.8-py3.11-amd64`
+Base Docker image: `python`
 
 ## Settings:
 Check `settings.yml` first!
