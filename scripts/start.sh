@@ -32,6 +32,9 @@ echo 'Wait 5 seconds for Jupyter Lab access...'
 sleep 5
 CONTAINER=`docker ps |grep ${APP_NAME}:${TAG}|cut -d ' ' -f 1`
 TOKEN=`docker exec -it ${CONTAINER} /bin/bash -c " jupyter server list --json |/usr/bin/jq -r '.token' " ` 
-echo "http://localhost:${PORT_JUPYTERLAB}/?token=${TOKEN}"
+for a in `hostname -I`;
+do 
+    echo "http://${a}:${PORT_JUPYTERLAB}/?token=${TOKEN}" ;
+done
 
 #EOF

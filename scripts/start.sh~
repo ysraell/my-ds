@@ -18,6 +18,7 @@ source ./scripts/yaml2env PORT_FREE settings.yml
 source ./scripts/yaml2env SHM_SIZE settings.yml
 
 docker run \
+    --runtime=nvidia \
     --gpus all \
     -p ${PORT_JUPYTERLAB}:8888 \
     -p ${PORT_STREAMLIT}:8501 \
