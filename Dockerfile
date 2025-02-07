@@ -2,6 +2,8 @@ ARG TAG
 ARG BASE_IMAGE_NAME
 FROM ${BASE_IMAGE_NAME}:${TAG}
 
+USER root
+WORKDIR /
 RUN apt-get update && apt-get install -y \
   wget \
   ca-certificates \
@@ -17,10 +19,12 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   tree \
   jq \
+  curl \
+  git \
   && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
 # Jupyter process and Node.js.
-RUN curl -sL https://deb.nodesource.com/setup_20.x  | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_22.x  | bash - && \
   apt-get install -y nodejs && \
   rm -rf /var/cache/apt && \
   rm -rf /var/lib/apt/lists/*
@@ -32,8 +36,8 @@ RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # Install python pkgs
 RUN pip3 install -U pip --no-cache-dir
-COPY ./ops/requirements.txt /requirements.txt
-RUN pip3 install -r requirements.txt --no-cache-dir
+COPY ./ops/requirements-rapids.txt /requirements-rapids.txt
+RUN pip3 install -r /requirements-rapids.txt --no-cache-dir
 
 # Jupyter process 
 RUN jupyter labextension install \
@@ -95,5 +99,5 @@ RUN echo export PATH=${PATH} >>/root/.zshrc
 
 # All servers need be in:
 COPY ./ops/servers.sh /servers.sh
-WORKDIR /
+
 CMD ["/servers.sh"]
