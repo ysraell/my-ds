@@ -36,8 +36,8 @@ RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # Install python pkgs
 RUN pip3 install -U pip --no-cache-dir
-COPY ./ops/requirements-rapids.txt /requirements-rapids.txt
-RUN pip3 install -r /requirements-rapids.txt --no-cache-dir
+COPY ./ops/requirements.txt /requirements.txt
+RUN pip3 install -r /requirements.txt --no-cache-dir
 
 # Jupyter process 
 RUN jupyter labextension install \

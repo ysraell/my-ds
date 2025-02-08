@@ -16,7 +16,16 @@ My data science Docker image.
 
 Base Docker image: `24.12-cuda11.8-py3.11-amd64`
 
-## Settings:
+# Ollama settings:
+
+add `Environment="OLLAMA_HOST=192.168.0.123"` in the file `/etc/systemd/system/ollama.service` under `[Service]`, then reload the service:
+
+```bash
+systemctl daemon-reload
+systemctl restart ollama
+```
+
+## My-DS Settings:
 Check `settings.yml` first!
 
 ## Building:
