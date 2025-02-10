@@ -1,10 +1,10 @@
 title: My Data Science Workstation
 description: Docker image with all you need for data science.
 author: Israel Oliveira <prof.israel@gmail.com>
-version: 2.3.2-cuda
+version: 2.3.1-rapids
 PORT_JUPYTERLAB: 8888
 PORT_STREAMLIT: 8501
-PORT_FREE: 8000
+PORT_FREE: 8090
 APP_NAME: my-ds
 CONTAINER_NAME: ws-rapids
 BASE_IMAGE_NAME: rapidsai/base
