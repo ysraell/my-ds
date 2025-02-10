@@ -1,9 +1,3 @@
-accelerate
-anthropic
-diffusers
-google
-google-generativeai
-gradio
 ipympl
 ipysankeywidget
 ipytree
@@ -25,6 +19,8 @@ simplejson
 speedtest-cli
 tabulate
 tqdm
-transformers
 unidecode
 watermark
+diffusers
+transformers
+accelerate
