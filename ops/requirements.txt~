@@ -1,5 +1,6 @@
 accelerate
 anthropic
+datasets
 diffusers
 google
 google-generativeai
@@ -22,6 +23,7 @@ openai
 python-dotenv
 seaborn
 simplejson
+soundfile
 speedtest-cli
 tabulate
 tqdm

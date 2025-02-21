@@ -1,5 +1,6 @@
 accelerate
 anthropic
+bitsandbytes
 datasets
 diffusers
 google
@@ -20,13 +21,18 @@ matplotlib
 nodejs
 ollama
 openai
+peft
 python-dotenv
+requests
 seaborn
+sentencepiece
 simplejson
 soundfile
 speedtest-cli
 tabulate
+torch
 tqdm
 transformers
+trl
 unidecode
 watermark
