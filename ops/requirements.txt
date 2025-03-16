@@ -36,3 +36,5 @@ transformers
 trl
 unidecode
 watermark
+chromadb
+plotly

@@ -5,4 +5,6 @@ source ./scripts/yaml2env CONTAINER_NAME settings.yml
 
 docker start ${CONTAINER_NAME}
 
+bash ./scripts/list_jupyter.sh
+
 #EOF
