@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-$POSTGRES_MOUNT=/mnt/hd2/postgres_mount
+POSTGRES_MOUNT=/mnt/hd2/postgres_mount
 
 mkdir -p $POSTGRES_MOUNT
 
