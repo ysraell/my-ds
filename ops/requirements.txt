@@ -1,6 +1,7 @@
 accelerate
 anthropic
 bitsandbytes
+chromadb
 datasets
 diffusers
 google
@@ -22,6 +23,7 @@ nodejs
 ollama
 openai
 peft
+plotly
 python-dotenv
 requests
 seaborn
@@ -36,5 +38,5 @@ transformers
 trl
 unidecode
 watermark
-chromadb
-plotly
+tiktoken
+tensorflow
